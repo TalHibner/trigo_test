@@ -1,0 +1,38 @@
+#apiVersion: v1
+#kind: Service
+#metadata:
+#  name: service-a-service
+#  labels:
+#    app: service-a
+#spec:
+#  type: LoadBalancer
+#  ports:
+#    - port: 80
+#  selector:
+#    app: service-a
+#---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: service-a-deployment
+  labels:
+    app: service-a
+spec:
+  selector:
+    matchLabels:
+      app: service-a
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: service-a
+    spec:
+      containers:
+        - name: service-a
+          image: service-a
+          resources:
+            requests:
+              cpu: 100m
+              memory: 100Mi
+          ports:
+            - containerPort: 80

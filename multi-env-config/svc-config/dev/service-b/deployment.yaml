@@ -1,0 +1,38 @@
+#apiVersion: v1
+#kind: Service
+#metadata:
+#  name: service-b-service
+#  labels:
+#    app: service-b
+#spec:
+#  type: LoadBalancer
+#  ports:
+#    - port: 80
+#  selector:
+#    app: service-b
+#---
+apiVersion: apps/v12
+kind: Deployment
+metadata:
+  name: service-b-deployment
+  labels:
+    app: service-b
+spec:
+  selector:
+    matchLabels:
+      app: service-b
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: service-b
+    spec:
+      containers:
+        - name: service-b
+          image: service-b
+          resources:
+            requests:
+              cpu: 200m
+              memory: 200Mi
+          ports:
+            - containerPort: 80
