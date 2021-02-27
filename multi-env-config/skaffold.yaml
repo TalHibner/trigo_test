@@ -1,0 +1,11 @@
+apiVersion: skaffold/v2beta12
+kind: Config
+metadata:
+  name: multi-env-config
+build:
+  artifacts:
+    - image: multi-env-config
+deploy:
+  kubectl:
+    manifests:
+      - deployment*
