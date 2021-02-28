@@ -1,0 +1,11 @@
+apiVersion: skaffold/v2beta12
+kind: Config
+metadata:
+  name: service-b
+build:
+  artifacts:
+    - image: service-b
+deploy:
+  kubectl:
+    manifests:
+      - ../multi-env-config/svc-config/dev/service-b/dev-deployment.yaml

@@ -2,6 +2,6 @@
 apiVersion: skaffold/v2beta12
 kind: Config
 requires:
-  - path: ./multi-env-config
   - path: ./service-a
   - path: ./service-b
+  - path: ./multi-env-config

@@ -1,0 +1,11 @@
+apiVersion: skaffold/v2beta12
+kind: Config
+metadata:
+  name: service-a
+build:
+  artifacts:
+    - image: service-a
+deploy:
+  kubectl:
+    manifests:
+      - deployment.yaml

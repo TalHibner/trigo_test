@@ -8,4 +8,4 @@ build:
 deploy:
   kubectl:
     manifests:
-      - deployment*
+      - ../multi-env-config/svc-config/dev/multi-env-config/deployment.yaml
