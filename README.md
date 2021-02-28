@@ -55,6 +55,8 @@ Solution
 
 `sudo kubectl port-forward deployment/multi-env-config-deployment 80:80`
 
+For more info https://skaffold.dev/docs/pipeline-stages/port-forwarding/
+
 8. Then you will able to download each configuration file by going to your browser and use each URLs:
 
 
@@ -63,7 +65,13 @@ Solution
 		http://127.0.0.1:80/dev/service-a/config  - will present dev configuration of service a. 
 		http://localhost:80/dev/service-b/config  - will present dev configuration of service b. 
 
+Helpful for troubleshooting: https://kubernetes.io/docs/reference/kubectl/cheatsheet/
+
+Things that I could add for the advance topics of envs:
+- Using the envTemplate tag policy - https://github.com/GoogleContainerTools/skaffold/tree/master/examples/tagging-with-environment-variables
+- Skaffold profiles allow you to define build, test and deployment configurations for different contexts. Different contexts are typically different environments in your app’s lifecycle, like Production or Development - https://github.com/GoogleContainerTools/skaffold/tree/master/examples/profiles
+
 **Cleaning:**
 
-- For stopping Skaffold you can just ctrl+c and then it will start cleaning up.
+- For stopping Skaffold you can just ctrl+c and then it will start cleaning up. (or run `skaffold delete`)
 - For destroying the cluster run `$ kind delete cluster `
