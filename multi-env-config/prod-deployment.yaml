@@ -1,39 +1,39 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: service-b
+  name: multi-env-config-service
   labels:
-    app: service-b
+    app: multi-env-config
 spec:
   type: NodePort
   selector:
-    app: service-b
+    app: multi-env-config
   ports:
     - port: 80
       targetPort: 80
 ---
-apiVersion: apps/v12
+apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: service-b-deployment
+  name: multi-env-config-deployment
   labels:
-    app: service-b
+    app: multi-env-config
 spec:
   selector:
     matchLabels:
-      app: service-b
+      app: multi-env-config
   replicas: 1
   template:
     metadata:
       labels:
-        app: service-b
+        app: multi-env-config
     spec:
       containers:
-        - name: service-b
-          image: service-b
+        - name: multi-env-config
+          image: multi-env-config
           resources:
             requests:
-              cpu: 200m
-              memory: 200Mi
+              cpu: 100m
+              memory: 100Mi
           ports:
             - containerPort: 80

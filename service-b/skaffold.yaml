@@ -8,4 +8,5 @@ build:
 deploy:
   kubectl:
     manifests:
-      - ../multi-env-config/svc-config/dev/service-b/dev-deployment.yaml
+      - multi-env-config/svc-config/dev/servic-b/dev-deployment.yaml
+      - multi-env-config/svc-config/prod/servic-b/prod-deployment.yaml

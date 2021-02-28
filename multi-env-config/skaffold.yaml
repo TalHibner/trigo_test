@@ -8,4 +8,10 @@ build:
 deploy:
   kubectl:
     manifests:
-      - ../multi-env-config/svc-config/dev/multi-env-config/deployment.yaml
+      - dev-deployment.yaml
+      - prod-deployment.yaml
+portForward:
+- resourceType: deployment
+  resourceName: multi-env-config-deployment
+  port: 80
+  localPort: 80

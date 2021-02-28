@@ -5,11 +5,12 @@ metadata:
   labels:
     app: multi-env-config
 spec:
-  type: LoadBalancer
-  ports:
-    - port: 80
+  type: NodePort
   selector:
     app: multi-env-config
+  ports:
+    - port: 80
+      targetPort: 80
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -32,7 +33,7 @@ spec:
           image: multi-env-config
           resources:
             requests:
-              cpu: 100m
-              memory: 100Mi
+              cpu: 1
+              memory: 1G
           ports:
             - containerPort: 80
